@@ -1,16 +1,38 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
-  <bar-chart></bar-chart>
+  <div style="height: 20rem; width: 20rem">
+    <v-chart width="20rem" height="20rem" :options="options"></v-chart>
+  </div>
+  <button @click="a">乐，接着乐</button>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
 export default {
   name: "App",
-  components: {
-    HelloWorld,
+  data() {
+    return {
+      options: {
+        title: {
+          text: "ECharts 入门示例",
+        },
+        tooltip: {},
+        xAxis: {
+          data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"],
+        },
+        yAxis: {},
+        series: [
+          {
+            name: "销量",
+            type: "bar",
+            data: [5, 20, 36, 10, 10, 20],
+          },
+        ],
+      },
+    };
+  },
+  methods: {
+    a() {
+      this.options.series[0].data[0]++;
+    },
   },
 };
 </script>

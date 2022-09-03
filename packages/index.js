@@ -1,13 +1,7 @@
-import BarChart from "./components/BarChart"
-import CategoryChart from "./components/CategoryChart"
-import PieChart from "./components/PieChart"
-import ScatterChart from "./components/ScatterChart"
+import VChart from "./components/VChart"
 
 const components = [
-    BarChart,
-    CategoryChart,
-    PieChart,
-    ScatterChart
+    VChart
 ]
 
 const install = function (Vue) {
