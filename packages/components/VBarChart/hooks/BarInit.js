@@ -1,5 +1,5 @@
 import * as echarts from 'echarts';
-import { onMounted, watch } from 'vue';
+import { onMounted, watch, computed } from 'vue';
 export default function (target, props) {
    let chart;
    console.log(props)
@@ -12,6 +12,13 @@ export default function (target, props) {
       }
    }
 
+
+   let options = computed(() => {
+      let options = Object.assign({}, props.options)
+      options.title = { text: props.title } || options.title
+      options.series = props.series || options.series
+      return options
+   })
    const init = () => {
       if (!target.value) {
          console.log("Need to provide a binding target for the chart")
@@ -25,21 +32,17 @@ export default function (target, props) {
       setChartSize()
       const theme = props.theme || null
       const opst = props.opst || null
-      const options = Object.assign({}, props.options)
-      options.title =
-         { text: props.title }
-         || opst.title
 
       chart = echarts.init(target.value, theme, opst)
-      chart.setOption(options);
+      chart.setOption(options.value);
    }
 
    onMounted(() => {
       init()
    })
 
-   watch(props.options, () => {
-      chart.setOption(props.options)
+   watch(options, () => {
+      chart.setOption(options.value)
    }, { deep: true })
 
    return chart;

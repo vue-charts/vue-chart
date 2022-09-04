@@ -4,7 +4,6 @@
  
  <script>
 import { ref } from "@vue/reactivity";
-
 import useProps from "../../hooks/useProps";
 import BarInit from "./hooks/BarInit";
 import BarProps from "./hooks/BarProps";
@@ -20,6 +19,7 @@ console.log(props);
 const target = ref(null);
 // eslint-disable-next-line
 let chart = BarInit(target, props);
+// eslint-disable-next-line
 </script>
  
  <style lang="scss" scoped>

@@ -6,12 +6,13 @@
     <v-bar-chart
       width="500px"
       height="500px"
-      title="newTitle"
+      :title="newTitle"
       :options="options"
+      :series="series"
     >
     </v-bar-chart>
   </div>
-  <button @click="a">乐，接着乐</button>
+  <button @click="b">乐，接着乐</button>
 </template>
 
 <script>
@@ -19,7 +20,14 @@ export default {
   name: "App",
   data() {
     return {
-      newTitle: "asdas",
+      series: [
+        {
+          type: "bar",
+          name: "2015",
+          data: [89.3, 92.1, 94.4, 85.4],
+        },
+      ],
+      newTitle: "新标题",
       options: {
         title: {
           text: "ECharts 入门示例",
@@ -56,7 +64,16 @@ export default {
   },
   methods: {
     a() {
-      this.options.series[0].data[0]++;
+      this.options.dataset.source[2] = ["Milk Tea", 83.1, 73.4, 55.1];
+    },
+    b() {
+      this.series = [
+        {
+          type: "bar",
+          name: "2015",
+          data: [893, 92.1, 94.4, 85.4],
+        },
+      ];
     },
   },
 };
