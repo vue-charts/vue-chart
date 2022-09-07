@@ -1,7 +1,7 @@
 import * as echarts from 'echarts';
 import { onMounted, watch } from 'vue';
 
-export default function (target, props) {
+export default function (target, props, options) {
    let chart;
 
    const setChartSize = () => {
@@ -18,7 +18,7 @@ export default function (target, props) {
          console.log("Need to provide a binding target for the chart")
          return
       }
-      if (!props.options) {
+      if (!options) {
          console.log("You did not provide any configuration data")
          return
       }
@@ -26,15 +26,15 @@ export default function (target, props) {
       const theme = props.theme || null
       const opst = props.opst || null
       chart = echarts.init(target.value, theme, opst)
-      chart.setOption(props.options);
+      chart.setOption(options);
    }
 
    onMounted(() => {
       init()
    })
 
-   watch(props.options, () => {
-      chart.setOption(props.options)
+   watch(options, () => {
+      chart.setOption(options)
    }, { deep: true })
 
    return chart;

@@ -1,7 +1,8 @@
 import VChart from "./components/VChart"
+import VCategoryChart from './components/VCategoryChart/VCategoryChart'
 import VBarChart from './components/VBarChart/VBarChart'
 const components = [
-   VChart, VBarChart
+   VChart, VCategoryChart, VBarChart
 ]
 
 const install = function (Vue) {

@@ -6,15 +6,15 @@
 import { ref } from "@vue/reactivity";
 import useProps from "../../hooks/useProps";
 import useInit from "../../hooks/useInit";
-import useBarProps from "./hooks/useBarProps";
+import useCategoryProps from "./hooks/useCategoryProps";
 import useOptions from "./hooks/useOptions";
 export default {
-  name: "v-bar-chart",
+  name: "v-category-chart",
 };
 </script>
  <script setup>
 // eslint-disable-next-line
-const props = defineProps(Object.assign(useBarProps(), useProps()));
+const props = defineProps(Object.assign(useCategoryProps(), useProps()));
 const target = ref(null);
 const options = useOptions(props);
 // eslint-disable-next-line
