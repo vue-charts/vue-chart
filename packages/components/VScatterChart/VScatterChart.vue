@@ -6,15 +6,15 @@
 import { ref } from "@vue/reactivity";
 import useProps from "../../hooks/useProps";
 import useInit from "../../hooks/useInit";
-import useCategoryProps from "./hooks/useCategoryProps";
+import useScatterProps from "./hooks/useScatterProps";
 import useOptions from "./hooks/useOptions";
 export default {
-  name: "v-category-chart",
+  name: "v-scatter-chart",
 };
 </script>
  <script setup>
 // eslint-disable-next-line
-const props = defineProps(Object.assign(useCategoryProps(), useProps()));
+const props = defineProps(Object.assign(useScatterProps(), useProps()));
 const target = ref(null);
 const options = useOptions(props);
 // eslint-disable-next-line

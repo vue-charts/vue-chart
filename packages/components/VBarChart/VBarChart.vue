@@ -18,7 +18,7 @@ const props = defineProps(Object.assign(useBarProps(), useProps()));
 const target = ref(null);
 const options = useOptions(props);
 // eslint-disable-next-line
-let chart = useInit(target, props, options);
+let chart = useInit(target, props, options.value);
 </script>
  
  <style lang="scss" scoped>

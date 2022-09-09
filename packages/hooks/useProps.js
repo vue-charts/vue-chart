@@ -4,7 +4,10 @@ export default function () {
         height: String,
         theme: String,
         opst: Object,
-        options: Object
+        options: Object,
+        xAxis: Object,
+        yAxis: Object,
+        legend: Object,
     }
     return props
 }

@@ -31,18 +31,8 @@ export default function (props) {
 }
 
 const formatType = function (props) {
+    console.log(props)
     return {
-        type: 'bar',
-        itemStyle: computed(() => props.itemStyle),
-        stack: computed(() => props.stack),
-        showBackground: computed(() => props.backgroundColor ? true : false),
-        backgroundStyle: {
-            color: computed(() => props.backgroundColor)
-        },
-        barWidth: computed(() => props.barOptions.barWidth),
-        barMaxWidth: computed(() => props.barOptions.barMaxWidth),
-        barMinWidth: computed(() => props.barOptions.barMinWidth),
-        barGap: computed(() => props.barOptions.barGap),
-        barCategoryGap: computed(() => props.barOptions.barCategoryGap)
+        type: 'scatter',
     }
 }

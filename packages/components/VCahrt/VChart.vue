@@ -4,8 +4,8 @@
 
 <script>
 import { ref } from "@vue/reactivity";
-import useInit from "../hooks/useInit";
-import useProps from "../hooks/useProps";
+import useInit from "../../hooks/useInit";
+import useProps from "../../hooks/useProps";
 
 export default {
   name: "v-chart",

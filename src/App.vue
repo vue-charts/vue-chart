@@ -21,20 +21,40 @@
       stack="x"
     ></v-bar-chart>
   </div>
+  <div>
+    <v-pie-chart
+      width="20rem"
+      height="20rem"
+      :legend="legend"
+      :data="pieData"
+      roseType
+    ></v-pie-chart>
+  </div>
+  <div>
+    <v-scatter-chart
+      width="20rem"
+      height="20rem"
+      :legend="legend"
+      :xAxis="xAxis"
+      :yAxis="yAxis"
+      :data="data"
+    ></v-scatter-chart>
+  </div>
   <button @click="b">乐，接着乐</button>
 </template>
 
 <script>
 import VBarChart from "../packages/components/VBarChart/VBarChart.vue";
+import VScatterChart from "../packages/components/VScatterChart/VScatterChart.vue";
 export default {
-  components: { VBarChart },
+  components: { VBarChart, VScatterChart },
   name: "App",
   data() {
     return {
       legend: {
         orient: "vertical",
         right: 10,
-        top: "center",
+        top: "bottom",
       },
       xAxis: {
         type: "category",
@@ -47,6 +67,11 @@ export default {
         [120, 200, 150],
         [200, 150, 120],
       ],
+      pieData: [
+        { value: 120, name: "1" },
+        { value: 150, name: "2" },
+        { value: 180, name: "3" },
+      ],
     };
   },
   methods: {
@@ -54,7 +79,7 @@ export default {
       this.options.dataset.source[2] = ["Milk Tea", 83.1, 73.4, 55.1];
     },
     b() {
-      this.data[0]++;
+      this.pieData.push({ value: 240, name: "4" });
     },
   },
 };
